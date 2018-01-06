@@ -1,4 +1,3 @@
-
 var express       = require( 'express' ),
     path          = require( 'path' ),
     favicon       = require( 'serve-favicon' ),
@@ -9,8 +8,8 @@ var express       = require( 'express' ),
     http          = require( 'http'),
     app           = express();
 
-// API file for interacting with 
-
+// API files for interacting with 
+var auth = require( './server/routes/auth' )
 
 // Parsers
 app.use(bodyParser.json());
@@ -21,10 +20,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Use the routes here
+app.use( '/api/auth/', auth );
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
-res.sendFile(path.join(__dirname, 'dist/index.html'));
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 //Set Port
