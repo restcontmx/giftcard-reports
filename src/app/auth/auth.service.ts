@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Rx';
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { SetupService } from './setup.service';
 
 @Injectable()
 export class AuthService {
@@ -14,7 +15,9 @@ export class AuthService {
     // @param http_service:Http serivce
     // @param cookie_service:Cookie service 
     // @returns none
-    constructor( private http_service:Http, private cookie_service:CookieService ) {}
+    constructor(    private http_service:Http, 
+                    private cookie_service:CookieService,
+                    private setup_service:SetupService  ) {}
 
     // View validation
     // Verifies that the user is logged in
@@ -30,7 +33,7 @@ export class AuthService {
     // @param password : string - user password for auth
     // @returns a login pettition
     login( email:string, password:string ) {
-        return this.http_service.post( '/api/auth/login/', { 'email' : email, 'password' : password })        
+        return this.http_service.post( this.setup_service.getAPIUri() + 'auth/login/', { 'email' : email, 'password' : password })        
     }
 
     // Log out function
@@ -39,6 +42,6 @@ export class AuthService {
     // @returns a logout pettition
     logout = () => {
         localStorage.removeItem( 'userdata' )
-        return this.http_service.post( '/api/auth/logout/', {});
+        return this.http_service.post( this.setup_service.getAPIUri() + 'auth/logout/', {});
     }
 }

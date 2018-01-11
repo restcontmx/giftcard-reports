@@ -13,6 +13,7 @@ import { SideBarComponent } from './menu/sidebar.component'
 import { LoginComponent } from './auth/login.component'
 import { AuthService } from './auth/auth.service'
 import { AlwaysAuthGuard } from './auth/alwaysauthguard.service'
+import { SetupService } from './auth/setup.service';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
         FormsModule
     ],
     providers: [
+        SetupService,
         AuthService,
         CookieService,
         AlwaysAuthGuard

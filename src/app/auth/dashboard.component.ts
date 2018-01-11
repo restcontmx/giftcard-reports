@@ -12,10 +12,9 @@ import { Router } from '@angular/router'
 export class DashboardComponent implements OnInit {
 
     // Constructor function
-    // @param auth_service : authentication service
     // @param router : router service
     // @returns none
-    constructor( private auth_service:AuthService, private router:Router ) {}
+    constructor( private router:Router ) {}
     
     // Init function
     // This will initialize the consturctor and validates login

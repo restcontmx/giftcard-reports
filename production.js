@@ -4,31 +4,24 @@ var express       = require( 'express' ),
     logger        = require( 'morgan' ),
     cookieParser  = require( 'cookie-parser' ),
     bodyParser    = require( 'body-parser' ),
-    path          = require( 'path'),
     http          = require( 'http'),
-    app           = express();
-
-// API files for interacting with 
-var auth = require( './server/routes/auth' )
+    app           = express(),
+    setup         = require( './setup' )
 
 // Parsers
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
 
-// Angular DIST output folder
+app.use( '/api/', setup )
+
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// Use the routes here
-app.use( '/api/auth/', auth );
-
-// Send all other requests to the Angular app
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-//Set Port
-const port = process.env.PORT || '4321';
+const port = process.env.PORT || '4123';
 app.set('port', port);
 
 const server = http.createServer(app);
