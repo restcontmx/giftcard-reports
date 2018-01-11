@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { MyDateRangePickerModule } from 'mydaterangepicker';
 import { NgModule } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service'
 import { HttpModule } from '@angular/http'
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
             { enableTracing: false } // <-- debugging purposes only
         ),
         BrowserModule,
-        FormsModule
+        FormsModule,
+        MyDateRangePickerModule 
     ],
     providers: [
         AuthService,
