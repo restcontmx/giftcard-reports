@@ -1,37 +1,23 @@
-<br>
-<br>
-<br>
-<div class="row">
-    <div class="col-12 col-md-9">
-        <div class="card">
-            <div class="card-header">
-                DateRange
-            </div>
-
-            <div class="card-body card-daterange" style="padding: 1.25rem;">
-
-
-                <a class="badge badge-success" href="">Today</a>
-                <a class="badge badge-success" href="">Last 7 Days</a>
-                <a class="badge badge-success" href="">This Month</a>
-                <a class="badge badge-success" href="">Last Month</a>
-
-                <form #f="ngForm" (ngSubmit)="onSubmitNgModel()" novalidate>
-                    <div class="form-group">
-
-                        <my-date-range-picker name="ngModelDateRange" [options]="myDateRangePickerOptions" [(ngModel)]="model" required></my-date-range-picker>
-                    </div>
-
-                    <div>
-                        <button class="btn btn-primary" type="submit">Get Reports</button>
-                        <div class="alert alert-danger" role="alert">
-                            <span class="error hidden" *ngIf="!f.valid">Date range is required!</span>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-        </div>
+<h1>Dashboard Test</h1>
+<hr>
+<section class="row text-center placeholders">
+    <div class="col-6 col-sm-3 placeholder">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle"
+            alt="Generic placeholder thumbnail">
+        <h4>Label</h4>
+        <div class="text-muted">Something else</div>
+    </div>
+    <div class="col-6 col-sm-3 placeholder">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle"
+            alt="Generic placeholder thumbnail">
+        <h4>Label</h4>
+        <span class="text-muted">Something else</span>
+    </div>
+    <div class="col-6 col-sm-3 placeholder">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle"
+            alt="Generic placeholder thumbnail">
+        <h4>Label</h4>
+        <span class="text-muted">Something else</span>
     </div>
     <div class="col-12 col-md-3">
         <div class="card">
