@@ -9,11 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable()
 export class DashboardMainService {
     constructor(private http_service: Http,
-        private cookie_service:CookieService,
-        private setup_service:SetupService) {
-    
-
-    }
+            private cookie_service:CookieService,
+            private setup_service:SetupService) { }
 
 
     getBalance(data): Observable<Response> {

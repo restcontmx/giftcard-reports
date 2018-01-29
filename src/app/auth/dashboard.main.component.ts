@@ -22,7 +22,7 @@ export class DashboardMainComponent implements OnInit {
     ngOnInit(): void {
         console.log('gaylord')
         this.service.getBalance({ barcode: 51000, business: 2 })
-            .map(res => res.json()
+            .map(res => res.json())
             .subscribe(response => {
                 if(response.error){
                     console.log("There was an error getting the response")
@@ -30,7 +30,7 @@ export class DashboardMainComponent implements OnInit {
                     console.log(response.data)
 
                 }
-            }));
+            });
     }
 
 
