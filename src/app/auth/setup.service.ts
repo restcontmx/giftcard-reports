@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class SetupService {
     
-    private DEVELOPMENT_MODE : boolean = true
+    private DEVELOPMENT_MODE : boolean = false
     private dev_api_uri : string = "http://localhost:4123/api/"
     private prod_api_uri : string = "/api/"
 

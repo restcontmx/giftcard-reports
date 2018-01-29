@@ -15,6 +15,7 @@ import { LoginComponent } from './auth/login.component'
 import { AuthService } from './auth/auth.service'
 import { AlwaysAuthGuard } from './auth/alwaysauthguard.service'
 import { SetupService } from './auth/setup.service';
+import { DashboardMainService } from './auth/dashboard.main.service';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -52,8 +53,10 @@ const appRoutes: Routes = [
     providers: [
         SetupService,
         AuthService,
+        DashboardMainService,
         CookieService,
         AlwaysAuthGuard
+        
     ],
     bootstrap: [AppComponent]
 })

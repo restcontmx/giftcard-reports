@@ -1,71 +1,87 @@
-<h1>Dashboard Test</h1>
-<hr>
-<section class="row text-center placeholders">
-    <div class="col-6 col-sm-3 placeholder">
-        <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle"
-            alt="Generic placeholder thumbnail">
-        <h4>Label</h4>
-        <div class="text-muted">Something else</div>
-    </div>
-    <div class="col-6 col-sm-3 placeholder">
-        <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle"
-            alt="Generic placeholder thumbnail">
-        <h4>Label</h4>
-        <span class="text-muted">Something else</span>
-    </div>
-    <div class="col-6 col-sm-3 placeholder">
-        <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle"
-            alt="Generic placeholder thumbnail">
-        <h4>Label</h4>
-        <span class="text-muted">Something else</span>
-    </div>
-    <div class="col-12 col-md-3">
-        <div class="card">
-            <div class="card-header">
-                Gift Cards Summary
-            </div>
+<br>
+<br>
+<br>
 
-            <div class="card-body card-daterange" style="padding: 1.25rem;">
-                <span>Total: $135.00</span><br>
-                <span>Paid: $120.00</span><br>
-                <span>Complementary: $15.00</span><br>
+
+
+<div class="col-12">
+
+
+
+    <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmitNgModel()" novalidate>
+        <label class="sr-only" for="inlineFormInputName2">Name</label>
+        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search Gift Card Number">
+        <my-date-range-picker  style="padding-top: 5px;" class="mb-2 mr-sm-2 pull-right" name="ngModelDateRange" [options]="myDateRangePickerOptions" [(ngModel)]="model"
+            required></my-date-range-picker>
+
+        <!-- <button class="button" type="submit">Submit</button> -->
+        <!-- <p class="error" *ngIf="!f.valid">Date range is required!</p> -->
+     
+                <button type="submit" class="btn btn-primary mb-2 pull-right">Search</button>
+   
+       
+    </form>
+
+</div>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            Gift Cards Summary
+        </div>
+
+        <div class="card-body card-daterange" style="padding: 1.25rem;">
+                <div class="row">
+            <div class="col-6">
+                    <strong>Total Value Sold:</strong> $135.00
+                    <br>
+                    <strong>Outstanding Balance:</strong> $120.00
+            </div>
+            <div class="col-6">
+                    <strong>Total Value Redeemed:</strong> $15.00
+                    <br>
+                   <strong>Gift Cards in Circulation:</strong> 10
             </div>
         </div>
-    </div>
-
-
-    <div class="row col-12">
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Barcode</th>
-                        <th>Value</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>Lorem</td>
-                        <td>ipsum</td>
-                        <td>dolor</td>
-                    </tr>
-                    <tr>
-                        <td>1,002</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                    </tr>
-
-                </tbody>
-            </table>
+            
         </div>
     </div>
+</div>
+
+<br>
+
+<div class="row col-12">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Barcode</th>
+                    <th>Total Sold</th>
+                    <th>Total Redeemed</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1,001</td>
+                    <td>Lorem</td>
+                    <td>ipsum</td>
+                    <td>dolor</td>
+                </tr>
+                <tr>
+                    <td>1,002</td>
+                    <td>amet</td>
+                    <td>consectetur</td>
+                    <td>adipiscing</td>
+                </tr>
+                <tr>
+                    <td>1,003</td>
+                    <td>Integer</td>
+                    <td>nec</td>
+                    <td>odio</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
