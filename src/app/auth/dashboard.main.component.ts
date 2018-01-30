@@ -50,7 +50,7 @@ export class DashboardMainComponent implements OnInit {
         this.service.giftCardsTransByDateRange(
                 { start_date: '2017-12-03+21:00:59', 
                   end_date: '2018-12-07+21:00:59',
-                  location: 1
+                  loc: 1
                 })
         .map(res => res.json())
         .subscribe(response => {

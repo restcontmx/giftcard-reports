@@ -30,7 +30,7 @@ router.get('/balance', jsonParser, function (req, res){
     );
 });
 
-router.get('/giftcardstransbydaterange', jsonParser, function (req, res){
+router.get('/transbydaterange', jsonParser, function (req, res){
     var userdata = JSON.parse(req.cookies['userdata']);
     var url_parts = urlLib.parse( req.url, true );
     console.log('balance request')

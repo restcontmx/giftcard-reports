@@ -20,7 +20,7 @@ export class DashboardMainService {
      }
 
      giftCardsTransByDateRange(data): Observable<Response> {
-        let formated_request = `${this.setup_service.getAPIUri()}giftcardstransbydaterange?start_date=${data.start_date}&end_date=${data.end_date}&location=${data.loc}`
+        let formated_request = `${this.setup_service.getAPIUri()}giftcards/transbydaterange?start_date=${data.start_date}&end_date=${data.end_date}&location=${data.loc}`
         console.log(formated_request)
         return this.http_service.get(formated_request)
      }
