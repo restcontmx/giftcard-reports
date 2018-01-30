@@ -11,15 +11,15 @@
     <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmitNgModel()" novalidate>
         <label class="sr-only" for="inlineFormInputName2">Name</label>
         <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search Gift Card Number">
-        <my-date-range-picker  style="padding-top: 5px;" class="mb-2 mr-sm-2 pull-right" name="ngModelDateRange" [options]="myDateRangePickerOptions" [(ngModel)]="model"
-            required></my-date-range-picker>
+        <my-date-range-picker style="padding-top: 5px;" class="mb-2 mr-sm-2 pull-right" name="ngModelDateRange" [options]="myDateRangePickerOptions"
+            [(ngModel)]="model" required></my-date-range-picker>
 
         <!-- <button class="button" type="submit">Submit</button> -->
         <!-- <p class="error" *ngIf="!f.valid">Date range is required!</p> -->
-     
-                <button type="submit" class="btn btn-primary mb-2 pull-right">Search</button>
-   
-       
+
+        <button  class="btn btn-primary mb-2 pull-right" (click)="getGiftCardBalance()">Get Report</button>
+
+
     </form>
 
 </div>
@@ -31,19 +31,27 @@
         </div>
 
         <div class="card-body card-daterange" style="padding: 1.25rem;">
-                <div class="row">
-            <div class="col-6">
+            <div class="row">
+                <div class="col-6">
+                    <strong>Total Value Sold:</strong> ${{currentGiftCardBalance}}
+                    <br>
+                    
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-6">
                     <strong>Total Value Sold:</strong> $135.00
                     <br>
                     <strong>Outstanding Balance:</strong> $120.00
-            </div>
-            <div class="col-6">
+                </div>
+                <div class="col-6">
                     <strong>Total Value Redeemed:</strong> $15.00
                     <br>
-                   <strong>Gift Cards in Circulation:</strong> 10
+                    <strong>Gift Cards in Circulation:</strong> 10
+                </div>
             </div>
-        </div>
-            
+
         </div>
     </div>
 </div>

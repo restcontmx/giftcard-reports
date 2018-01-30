@@ -30,4 +30,22 @@ router.get('/balance', jsonParser, function (req, res){
     );
 });
 
+router.get('/giftcardstransbydaterange', jsonParser, function (req, res){
+    var userdata = JSON.parse(req.cookies['userdata']);
+    var url_parts = urlLib.parse( req.url, true );
+    console.log('balance request')
+    request(
+        {
+            url: http_helper.get_api_uri('reports/giftcardstransbydaterange/', `?start_date=${url_parts.query.start_date}&end_date=${url_parts.query.end_date}&location=${url_parts.query.loc}`),
+            method: 'GET',
+            json: true,
+            headers: {
+                'Authorization': http_helper.get_basic_auth_w_token(encryption_system.decryptCookie(userdata.auth_data))
+            }
+        },
+        (error, response, body) => { res.send(http_helper.data_format_ok(error, response, body)) }
+    );
+    
+});
+
 module.exports = router;

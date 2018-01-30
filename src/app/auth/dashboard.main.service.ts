@@ -14,8 +14,13 @@ export class DashboardMainService {
 
 
     getBalance(data): Observable<Response> {
-        console.log('gay service')
         let formated_request = `${this.setup_service.getAPIUri()}giftcards/balance?barcode=${data.barcode}&business=${data.business}`
+        console.log(formated_request)
+        return this.http_service.get(formated_request)
+     }
+
+     giftCardsTransByDateRange(data): Observable<Response> {
+        let formated_request = `${this.setup_service.getAPIUri()}giftcardstransbydaterange?start_date=${data.start_date}&end_date=${data.end_date}&location=${data.loc}`
         console.log(formated_request)
         return this.http_service.get(formated_request)
      }
