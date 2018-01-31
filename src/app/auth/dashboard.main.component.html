@@ -12,12 +12,12 @@
         <label class="sr-only" for="inlineFormInputName2">Name</label>
         <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search Gift Card Number">
         <my-date-range-picker style="padding-top: 5px;" class="mb-2 mr-sm-2 pull-right" name="ngModelDateRange" [options]="myDateRangePickerOptions"
-            [(ngModel)]="model" required></my-date-range-picker>
+            [(ngModel)]="dateRange" required></my-date-range-picker>
 
         <!-- <button class="button" type="submit">Submit</button> -->
         <!-- <p class="error" *ngIf="!f.valid">Date range is required!</p> -->
 
-        <button  class="btn btn-primary mb-2 pull-right" (click)="getGiftCardBalance()">Get Report</button>
+        <button  class="btn btn-primary mb-2 pull-right" (click)="getDate()">Get Report</button>
 
 
     </form>
@@ -31,14 +31,7 @@
         </div>
 
         <div class="card-body card-daterange" style="padding: 1.25rem;">
-            <div class="row">
-                <div class="col-6">
-                    <strong>Total Value Sold:</strong> ${{currentGiftCardBalance}}
-                    <br>
-                    
-                </div>
-                
-            </div>
+           
             <div class="row">
                 <div class="col-6">
                     <strong>Total Value Sold:</strong> $135.00
@@ -63,31 +56,33 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Barcode</th>
+
+                    <!-- <th>Barcode</th>
                     <th>Total Sold</th>
                     <th>Total Redeemed</th>
-                    <th>Balance</th>
+                    <th>Balance</th> -->
+                    <th class="text-right">Transaction</th>
+                    <th class="text-right">Date</th>
+                    <th class="text-right">Barcode</th>
+                    <th class="text-right">Approved Amount</th>
+                    <th class="text-right">Location</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1,001</td>
-                    <td>Lorem</td>
-                    <td>ipsum</td>
-                    <td>dolor</td>
+                <tr *ngFor="let curentGiftCard of GiftCardData">
+                    <td class="text-right">{{curentGiftCard.trans_id}}</td>
+                    <td class="text-right">{{curentGiftCard.date}}</td>
+                    <td class="text-right">{{curentGiftCard.barcode}}</td>
+                    <td class="text-right">
+                        <span class= "badge"
+                            [class.badge-success]="curentGiftCard.approved_quantity >= 0"
+                            [class.badge-danger]="curentGiftCard.approved_quantity <= 0"
+                         >
+                            {{curentGiftCard.approved_quantity | number : '1.2-2'}}
+                        </span></td>
+                    <td class="text-right">{{curentGiftCard.location}}</td>
                 </tr>
-                <tr>
-                    <td>1,002</td>
-                    <td>amet</td>
-                    <td>consectetur</td>
-                    <td>adipiscing</td>
-                </tr>
-                <tr>
-                    <td>1,003</td>
-                    <td>Integer</td>
-                    <td>nec</td>
-                    <td>odio</td>
-                </tr>
+                
 
             </tbody>
         </table>

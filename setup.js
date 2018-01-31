@@ -8,9 +8,9 @@ var express       = require( 'express' ),
     app           = express()
     
 var auth = require( './server/routes/auth' )
-var giftcards = require( './server/routes/giftcards' )
+var reports = require( './server/routes/reports' )
 
 app.use( '/auth/', auth );
-app.use( '/giftcards', giftcards );
+app.use( '/reports/', reports );
 
 module.exports = app

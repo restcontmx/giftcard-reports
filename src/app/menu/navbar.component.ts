@@ -18,7 +18,7 @@ export class NavBarComponent {
     // Will logout and clean the cookie on the serve side of the app
     // @params none
     // @returns none
-    logout = () => {
+    Logout = () => {
         this.auth_service.logout()
             .map( res => res.json() )
             .subscribe( ( response ) => {

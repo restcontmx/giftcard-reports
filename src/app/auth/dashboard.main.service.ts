@@ -14,14 +14,14 @@ export class DashboardMainService {
 
 
     getBalance(data): Observable<Response> {
-        let formated_request = `${this.setup_service.getAPIUri()}giftcards/balance?barcode=${data.barcode}&business=${data.business}`
-        console.log(formated_request)
+        let formated_request = `${this.setup_service.getAPIUri()}reports/balance?barcode=${data.barcode}&business=${data.business}`
+        //console.log(formated_request)
         return this.http_service.get(formated_request)
      }
 
      giftCardsTransByDateRange(data): Observable<Response> {
-        let formated_request = `${this.setup_service.getAPIUri()}giftcards/transbydaterange?start_date=${data.start_date}&end_date=${data.end_date}&location=${data.loc}`
-        console.log(formated_request)
+        let formated_request = `${this.setup_service.getAPIUri()}reports/transbydaterange?start_date=${data.start_date}&end_date=${data.end_date}&loc=${data.loc}&bussines=${data.bussines}`
+        //console.log(formated_request)
         return this.http_service.get(formated_request)
      }
 }
