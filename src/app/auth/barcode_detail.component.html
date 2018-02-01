@@ -1,0 +1,65 @@
+<br>
+<br>
+<br>
+
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            Barcode : 
+        </div>
+
+        <div class="card-body card-daterange" style="padding: 1.25rem;">
+
+            <div class="row">
+                <div class="col-6">
+                    <strong>Current Balance:</strong> $120.00
+                </div>
+                <div class="col-6">
+                    <strong>Total Value Redeemed:</strong> $15.00
+                    <br>
+                    <strong>Total Value Sold:</strong> $135.00
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="row col-12">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+
+                    <!-- <th>Barcode</th>
+                        <th>Total Sold</th>
+                        <th>Total Redeemed</th>
+                        <th>Balance</th> -->
+                    <th class="text-right">Transaction</th>
+                    <th class="text-right">Date</th>
+                    <th class="text-right">Barcode</th>
+                    <th class="text-right">Approved Amount</th>
+                    <th class="text-right">Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let curentGiftCard of giftCardData">
+                    <td class="text-right">{{curentGiftCard.trans_id}}</td>
+                    <td class="text-right">{{curentGiftCard.date}}</td>
+                    <td class="text-right">{{curentGiftCard.barcode}}</td>
+                    <td class="text-right">
+                        <span class="badge" [class.badge-success]="curentGiftCard.approved_quantity >= 0" [class.badge-danger]="curentGiftCard.approved_quantity <= 0">
+                            {{curentGiftCard.approved_quantity | number : '1.2-2'}}
+                        </span>
+                    </td>
+                    <td class="text-right">{{curentGiftCard.location}}</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

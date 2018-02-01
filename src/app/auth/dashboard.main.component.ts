@@ -42,7 +42,7 @@ export class DashboardMainComponent implements OnInit {
         //this.getTransByDateRange()
         console.log("month");
         console.log(this.lastDayOfMonth.getDate());
-        
+
         let beginDate = this.dateRange['beginDate']['year']+'-'+this.dateRange['beginDate']['month']+'-'+this.dateRange['beginDate']['day']+'+00:00:01'
         let endDate = this.dateRange['endDate']['year']+'-'+this.dateRange['endDate']['month']+'-'+this.dateRange['endDate']['day']+'+23:59:59'
 
@@ -50,7 +50,6 @@ export class DashboardMainComponent implements OnInit {
 
         this.getTransByDateRange(beginDate,endDate);
     }
-
 
 
     getDate(){
@@ -82,7 +81,9 @@ export class DashboardMainComponent implements OnInit {
         });
 
     }
-    
+    valueSold = 0
+valueRedeemed = 0
+trans_count = 0
     getTransByDateRange(startDate, endDate){
 
         //var userdata = JSON.parse(req.cookies['userdata']);
@@ -97,9 +98,17 @@ export class DashboardMainComponent implements OnInit {
             if(response.error){
                 console.log("There was an error getting the response")
             }else{
-                //console.log(response.data)
                 this.GiftCardData = response.data;
-
+                for (var i = 0; i < this.GiftCardData.length; i++) { 
+                    
+                    if(this.GiftCardData[i].approved_quantity<0){
+                        this.valueRedeemed += this.GiftCardData[i].approved_quantity;
+                    }else{
+                        this.valueSold += this.GiftCardData[i].approved_quantity; 
+                    }
+                    
+                }
+                this.trans_count = this.GiftCardData.length
             }
         });
 

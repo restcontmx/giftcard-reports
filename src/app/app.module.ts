@@ -16,6 +16,7 @@ import { AuthService } from './auth/auth.service'
 import { AlwaysAuthGuard } from './auth/alwaysauthguard.service'
 import { SetupService } from './auth/setup.service';
 import { DashboardMainService } from './auth/dashboard.main.service';
+import { DetailComponent } from './auth/barcode_detail.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,6 +27,10 @@ const appRoutes: Routes = [
             {
                 path: '',
                 component: DashboardMainComponent
+            },
+            {
+                path: 'detail/:barcode',
+                component: DetailComponent
             }
         ]
     }
@@ -38,7 +43,8 @@ const appRoutes: Routes = [
         DashboardMainComponent,
         LoginComponent,
         NavBarComponent,
-        SideBarComponent
+        SideBarComponent,
+        DetailComponent
     ],
     imports: [
         HttpModule,

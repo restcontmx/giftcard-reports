@@ -51,4 +51,26 @@ router.get('/transbydaterange', jsonParser, function (req, res) {
 
 });
 
+
+router.get('/giftcardstransbybarcode', jsonParser, function (req, res) {
+    var userdata = JSON.parse(req.cookies['userdata']);
+    var url_parts = urlLib.parse(req.url, true);
+    console.log('transbydaterange request')
+    request(
+        {
+            url: http_helper.get_api_uri('reports/giftcardstransbybarcode/', `?barcode=${url_parts.query.barcode}&business=${url_parts.query.business}`),
+            method: 'GET',
+            json: true,
+            headers: {
+                'Authorization': http_helper.get_basic_auth_w_token(encryption_system.decryptCookie(userdata.auth_data))
+            }
+        },
+        (error, response, body) => {
+            res.send(http_helper.data_format_ok(error, response, body))
+            //console.log(response) 
+        }
+    );
+
+});
+
 module.exports = router;

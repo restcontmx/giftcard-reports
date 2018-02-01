@@ -24,4 +24,9 @@ export class DashboardMainService {
         //console.log(formated_request)
         return this.http_service.get(formated_request)
      }
+     giftCardsTransByBarcode(data): Observable<Response> {
+        let formated_request = `${this.setup_service.getAPIUri()}reports/giftcardstransbybarcode?barcode=${data.barcode}&business=${data.business}`
+        console.log(formated_request)
+        return this.http_service.get(formated_request)
+     }
 }

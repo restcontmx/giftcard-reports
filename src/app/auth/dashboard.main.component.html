@@ -34,14 +34,14 @@
            
             <div class="row">
                 <div class="col-6">
-                    <strong>Total Value Sold:</strong> $135.00
+                    <strong>Total Value Sold:</strong> ${{valueSold| number : '1.2-2'}}
                     <br>
-                    <strong>Outstanding Balance:</strong> $120.00
+                    <strong>Outstanding Balance:</strong> ${{valueSold+valueRedeemed| number : '1.2-2'}}
                 </div>
                 <div class="col-6">
-                    <strong>Total Value Redeemed:</strong> $15.00
+                    <strong>Total Value Redeemed:</strong> ${{valueRedeemed| number : '1.2-2'}}
                     <br>
-                    <strong>Gift Cards in Circulation:</strong> 10
+                    <strong>Total Transactions:</strong> {{trans_count}}
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
                 <tr *ngFor="let curentGiftCard of GiftCardData">
                     <td class="text-right">{{curentGiftCard.trans_id}}</td>
                     <td class="text-right">{{curentGiftCard.date}}</td>
-                    <td class="text-right">{{curentGiftCard.barcode}}</td>
+                    <td class="text-right"><a routerLink="detail/{{curentGiftCard.barcode}}">{{curentGiftCard.barcode}}</a></td>
                     <td class="text-right">
                         <span class= "badge"
                             [class.badge-success]="curentGiftCard.approved_quantity >= 0"
