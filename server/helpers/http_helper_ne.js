@@ -11,7 +11,7 @@ const   test_config = {
             token : 'UkVQT1JUU19BUFA6P2NkNEIyO0xbMzktOzNRQQ=='
         };
 
-const g_opts = test_config;
+const g_opts = production_config;
 
 /**
 * Get the full api uri compose with the model and the url data
