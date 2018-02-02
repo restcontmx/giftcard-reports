@@ -1,1 +1,1 @@
-www : node production
+web: node production
